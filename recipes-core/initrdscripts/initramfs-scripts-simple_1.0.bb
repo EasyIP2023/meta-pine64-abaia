@@ -7,8 +7,6 @@ LIC_FILES_CHKSUM = "file://${COREBASE}/meta/COPYING.MIT;md5=3da9cfbcb788c80a0384
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 PACKAGES = "${PN}"
 
-RDEPENDS:${PN} = "busybox-mdev"
-
 SRC_URI = " \
   file://init.sh \
   "

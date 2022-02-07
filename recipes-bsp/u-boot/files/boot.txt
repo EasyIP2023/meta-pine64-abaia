@@ -1,11 +1,13 @@
 setenv bootmode normal
+setenv bootargs #KARGS#
 
 if test x${volume_key} = xdown ; then
-    echo Recovery mode
-    setenv bootmode recovery
+  echo Recovery mode
+  setenv bootmode recovery
 fi
 
-setenv bootargs #KARGS#
+load mmc ${mmc_bootdev}:1 ${kernel_addr_r} abaia-logo.bmp
+bmp display ${loadaddr} 0 0
 
 echo Loading DTB...
 load mmc ${mmc_bootdev}:1 ${fdt_addr_r} sun50i-a64-pinephone.dtb

@@ -5,8 +5,13 @@ SECTION = "kernel"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://${S}/COPYING;md5=6bc538ed5bd9a7fc9398086aedcd7e46"
 
-inherit kernel
+inherit kernel abaia-logo
 require recipes-kernel/linux/linux-yocto.inc
+
+RAW_GRAPHIC_FILE_RES = "512x512"
+RAW_GRAPHIC_FILE = "1920x1080_demon-slayer.jpg"
+LOGO_PPM_FILE = "logo_linux_clut224.ppm"
+LOGO_PPM_FILE_LOC = "${S}/drivers/video/logo/"
 
 LINUX_VERSION ?= "5.14"
 LINUX_VERSION_EXTENSION = "-pinephone"
@@ -28,6 +33,7 @@ SRC_URI = " \
     file://0002-dts-pinephone-jack-detection.patch \
     file://defconfig \
     file://extra.cfg \
+    file://${RAW_GRAPHIC_FILE} \
     "
 
 COMPATIBLE_MACHINE = "pinephonepro|pinephone"
